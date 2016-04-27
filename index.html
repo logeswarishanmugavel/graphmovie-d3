@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Interactive Graph Movie</title>
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/layout-default.css" />
+    <link rel="stylesheet" type="text/css" href="css/graphd3.css" />
+
+  </head>
+
+  <body>
+     <div id="initcontrols" class="header">
+
+      <input id="file" type="file" name="file"  class="header-spacing" />
+      <button id = "next" class="header-spacing" onclick = "drawtree()">Next</button>
+      <p></p>
+      <p id = "txt"></p>
+    </div>
+  <!-- END OF HEADER SECTION -->
+
+  <div id="centerpane" class="graphmoviepane">
+    <div id="mainDisplay" class="graphmoviepane"></div>
+  </div>
+<!-- END OF RIGHT PANE -->
+ <script type="text/javascript" src="lib/jquery.js"></script>
+  <script type="text/javascript" src="lib/joint.all.min.js"></script>
+  <script type="text/javascript" src="lib/joint.layout.DirectedGraph.min.js"></script>
+  <script type="text/javascript" src="lib/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="lib/jquery.layout.js"></script>
+  <script type="text/javascript" src="lib/d3.v2.js"></script>
+  <script type="text/javascript" src="lib/d3.tip.v0.6.3.js"></script>
+  <script type="text/javascript" src="graphd3.js"></script>
+  
+  
+<script>
+  $(document).ready(function () {
+      $('body').layout({
+        north__paneSelector: "#initcontrols",
+        center__paneSelector: "#centerpane",
+        north__maxSize: 70,
+        north__minSize: 50
+      });
+      
+      $('#centerpane').layout({
+        center__paneSelector: "#mainDisplay",
+        spacing_open: 5,
+        spacing_closed: 5,
+        minSize: 30
+      });
+  });
+
+</script>
+  
+  </body>
+</html>
